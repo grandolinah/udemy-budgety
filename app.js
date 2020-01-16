@@ -1,18 +1,42 @@
 // BUDGET CONTROLLER
 let budgetController = (function () {
+  const Expense = function (id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  }
 
+  const Income = function (id, description, value) {
+    this.id = id;
+    this.description = description;
+    this.value = value;
+  }
 
+  let data = {
+    allItems: {
+      exp: [],
+      inc: [],
+    },
+    total: {
+      exp: 0,
+      inc: 0,
+    }
+  }
 })();
+
+const Expense = function (id, description, value) {
+  this.id = id;
+  this.description = description;
+  this.value = value;
+}
 
 // UI CONTROLLER
 const UIcontroller = (function () {
-
   let DOMstrings = {
     inputType: '.add__type',
     inputValue: '.add__value',
     inputDescription: '.add__description',
     inputButton: '.add__btn',
-
   };
 
   return {
@@ -34,7 +58,7 @@ const UIcontroller = (function () {
 const controller = (function (budgetCtrl, UICtrl) {
   const setupEventListeners = () => {
     let DOM = UICtrl.getDOMstrings();
-    console.log(DOM);
+    // console.log(DOM);
 
     document.querySelector(DOM.inputButton).addEventListener('click', ctrlAddItem);
 
